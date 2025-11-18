@@ -1,28 +1,31 @@
-
-#include <iostream>
-using namespace std;
-
-class Employee {
-    int id;
-    string name;
-public:
-    void getData() {
-        cout << "Enter ID & Name: ";
-        cin >> id >> name;
-    }
-    void display() {
-        cout << "ID: " << id << ", Name: " << name << endl;
-    }
-};
-
-int main() {
-    Employee emp[3];
-    for (int i = 0; i < 3; i++)
-        emp[i].getData();
-
-    cout << "\nEmployee Details:\n";
-    for (int i = 0; i < 3; i++)
-        emp[i].display();
-
-    return 0;
-}
+Aim: To illustrate the use of array of objects in C++. 
+ 
+Program: 
+#include <iostream> 
+using namespace std; 
+ 
+class Student { 
+    int roll; 
+    string name; 
+public: 
+    void getData() { 
+        cout << "Enter Roll No and Name: "; 
+        cin >> roll >> name; 
+    } 
+    void display() { 
+        cout << "Roll No: " << roll << ", Name: " << name << endl; 
+    } 
+}; 
+ 
+int main() { 
+    Student s[3]; 
+    for (int i = 0; i < 3; i++) { 
+        cout << "Enter details for Student " << i + 1 << endl; 
+        s[i].getData(); 
+    } 
+    cout << "\nStudent Details:\n"; 
+    for (int i = 0; i < 3; i++) 
+        s[i].display(); 
+ 
+    return 0; 
+} 
