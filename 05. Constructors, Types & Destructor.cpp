@@ -1,37 +1,45 @@
-Aim: To demonstrate passing objects as function arguments and returning objects from functions.
-    
+Aim: To demonstrate constructors (default, parameterized, copy) and destructor in C++. 
+
 Program: 
-    
 #include <iostream> 
 using namespace std; 
  
-class Complex { 
-    int real, imag; 
+class Sample { 
+    int x, y; 
  
 public: 
-    void getData(int r, int i) { 
-        real = r; 
-        imag = i; 
+    Sample() { 
+        x = 0; 
+        y = 0; 
+        cout << "Default Constructor called" << endl; 
     } 
  
-    Complex add(Complex c2) { 
-        Complex temp; 
-        temp.real = real + c2.real; 
-        temp.imag = imag + c2.imag; 
-        return temp; 
+    Sample(int a, int b) { 
+        x = a; 
+        y = b; 
+        cout << "Parameterized Constructor called" << endl; 
+    } 
+ 
+    Sample(const Sample &s) { 
+        x = s.x; 
+        y = s.y; 
+        cout << "Copy Constructor called" << endl; 
     } 
  
     void display() { 
-        cout << real << " + " << imag << "i" << endl; 
+        cout << "x = " << x << ", y = " << y << endl; 
     } 
-}; 
  
+    ~Sample() { 
+        cout << "Destructor called for object" << endl; 
+}; 
+} 
 int main() { 
-    Complex c1, c2, c3; 
-    c1.getData(3, 4); 
-    c2.getData(5, 6); 
-    c3 = c1.add(c2); 
-    cout << "Resultant Complex Number: "; 
-    c3.display(); 
-    return 0; 
+Sample s1;           
+Sample s2(10, 20);   
+Sample s3 = s2;      
+s1.display(); 
+s2.display(); 
+s3.display(); 
+return 0; 
 }
