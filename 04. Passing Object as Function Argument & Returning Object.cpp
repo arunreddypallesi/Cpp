@@ -1,3 +1,6 @@
+Aim: To demonstrate passing objects as function arguments and returning objects from functions.
+Program:
+    
 #include <iostream>
 using namespace std;
 
