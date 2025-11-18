@@ -1,25 +1,26 @@
-#include <iostream>
-using namespace std;
-
-class PrintData {
-public:
-    void display(int i) {
-        cout << "Integer: " << i << endl;
-    }
-
-    void display(double d) {
-        cout << "Double: " << d << endl;
-    }
-
-    void display(string s) {
-        cout << "String: " << s << endl;
-    }
-};
-
-int main() {
-    PrintData p;
-    p.display(10);
-    p.display(99.99);
-    p.display("Hello World");
-    return 0;
-}
+Aim:To demonstrate function overloading using member functions in a class. 
+Program:
+    
+#include <iostream> 
+using namespace std; 
+ 
+class MathOperations { 
+public: 
+    void add(int a, int b) { 
+        cout << "Sum = " << a + b << endl; 
+    } 
+    void add(double a, double b) { 
+        cout << "Sum = " << a + b << endl; 
+    } 
+    void add(int a, int b, int c) { 
+        cout << "Sum = " << a + b + c << endl; 
+    } 
+}; 
+ 
+int main() { 
+    MathOperations m; 
+    m.add(5, 10); 
+    m.add(2.5, 3.7); 
+    m.add(1, 2, 3); 
+    return 0; 
+} 
