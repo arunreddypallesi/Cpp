@@ -1,3 +1,6 @@
+Aim: To implement member functions defined inside and outside a class. 
+Program:
+
 #include <iostream>
 using namespace std;
 
