@@ -1,48 +1,37 @@
-#include <iostream>
-using namespace std;
-
-class Box {
-    int length, breadth, height;
-
-public:
-  
-    Box() {
-        length = breadth = height = 0;
-        cout << "Default Constructor called\n";
-    }
-
+Aim: To demonstrate passing objects as function arguments and returning objects from functions.
     
-    Box(int l, int b, int h) {
-        length = l;
-        breadth = b;
-        height = h;
-        cout << "Parameterized Constructor called\n";
-    }
-
-    Box(Box &b) {
-        length = b.length;
-        breadth = b.breadth;
-        height = b.height;
-        cout << "Copy Constructor called\n";
-    }
-
-    int volume() {
-        return length * breadth * height;
-    }
-
-
-    ~Box() {
-        cout << "Destructor called\n";
-    }
-};
-
-int main() {
-    Box b1;                 
-    Box b2(10, 5, 2);       
-    Box b3 = b2;           
-
-    cout << "Volume of b2: " << b2.volume() << endl;
-    cout << "Volume of b3: " << b3.volume() << endl;
-
-    return 0;
+Program: 
+    
+#include <iostream> 
+using namespace std; 
+ 
+class Complex { 
+    int real, imag; 
+ 
+public: 
+    void getData(int r, int i) { 
+        real = r; 
+        imag = i; 
+    } 
+ 
+    Complex add(Complex c2) { 
+        Complex temp; 
+        temp.real = real + c2.real; 
+        temp.imag = imag + c2.imag; 
+        return temp; 
+    } 
+ 
+    void display() { 
+        cout << real << " + " << imag << "i" << endl; 
+    } 
+}; 
+ 
+int main() { 
+    Complex c1, c2, c3; 
+    c1.getData(3, 4); 
+    c2.getData(5, 6); 
+    c3 = c1.add(c2); 
+    cout << "Resultant Complex Number: "; 
+    c3.display(); 
+    return 0; 
 }
