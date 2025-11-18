@@ -16,7 +16,7 @@ public:
 }; 
  
 int main() { 
-    Student s1; // Object creation 
+    Student s1; 
     s1.name = "John"; 
     s1.rollNo = 101; 
  
