@@ -1,19 +1,33 @@
-#include <iostream>
-using namespace std;
+Aim: To demonstrate binary operator overloading in C++. 
 
-class Add {
-    int a;
-public:
-    Add(int x) { a = x; }
-    Add operator+(Add obj) {
-        return Add(a + obj.a);
-    }
-    void display() { cout << "Sum: " << a << endl; }
-};
-
-int main() {
-    Add a1(10), a2(20), a3(0);
-    a3 = a1 + a2;
-    a3.display();
-    return 0;
-}
+Program: 
+#include <iostream> 
+using namespace std; 
+ 
+class Complex { 
+    int real, imag; 
+public: 
+    void getData(int r, int i) { 
+        real = r; 
+        imag = i; 
+    } 
+    Complex operator+(Complex c) { 
+        Complex temp; 
+        temp.real = real + c.real; 
+        temp.imag = imag + c.imag; 
+        return temp; 
+    } 
+    void display() { 
+        cout << real << " + " << imag << "i" << endl; 
+    } 
+}; 
+ 
+int main() { 
+    Complex c1, c2, c3; 
+    c1.getData(3, 4); 
+    c2.getData(2, 5); 
+    c3 = c1 + c2; 
+    cout << "Resultant Complex Number: "; 
+    c3.display(); 
+    return 0; 
+} 
