@@ -1,28 +1,36 @@
-#include <iostream>
-using namespace std;
+Aim: To demonstrate the use of friend class and friend function in C++. 
 
-class B; 
-class A {
-    int x;
-public:
-    A() { x = 10; }
-    friend void show(A, B);
-};
-
-class B {
-    int y;
-public:
-    B() { y = 20; }
-    friend void show(A, B);
-};
-
-void show(A a, B b) {
-    cout << "Sum = " << a.x + b.y << endl;
-}
-
-int main() {
-    A a;
-    B b;
-    show(a, b);
-    return 0;
-}
+Program: 
+#include <iostream> 
+using namespace std; 
+ 
+class Sample { 
+    int a, b; 
+public: 
+    void setData(int x, int y) { 
+        a = x; 
+        b = y; 
+    } 
+    friend class Sum;       
+    friend void display(Sample); 
+}; 
+ 
+class Sum { 
+public: 
+    int add(Sample s) { 
+        return s.a + s.b; 
+    } 
+}; 
+ 
+void display(Sample s) { 
+    cout << "Values: a = " << s.a << ", b = " << s.b << endl; 
+} 
+ 
+int main() { 
+    Sample s; 
+    s.setData(10, 20); 
+    Sum obj; 
+    display(s); 
+    cout << "Sum = " << obj.add(s) << endl; 
+    return 0; 
+} 
