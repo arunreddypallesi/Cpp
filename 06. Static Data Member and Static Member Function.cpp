@@ -1,45 +1,24 @@
-Aim: To demonstrate constructors (default, parameterized, copy) and destructor in C++. 
+Aim: To illustrate the use of static data members and static member functions in C++. 
 
 Program: 
 #include <iostream> 
 using namespace std; 
  
-class Sample { 
-    int x, y; 
- 
+class Counter { 
+    static int count; 
 public: 
-    Sample() { 
-        x = 0; 
-        y = 0; 
-        cout << "Default Constructor called" << endl; 
+    Counter() { 
+        count++; 
     } 
- 
-    Sample(int a, int b) { 
-        x = a; 
-        y = b; 
-        cout << "Parameterized Constructor called" << endl; 
+    static void showCount() { 
+        cout << "Object count = " << count << endl; 
     } 
- 
-    Sample(const Sample &s) { 
-        x = s.x; 
-        y = s.y; 
-        cout << "Copy Constructor called" << endl; 
-    } 
- 
-    void display() { 
-        cout << "x = " << x << ", y = " << y << endl; 
-    } 
- 
-    ~Sample() { 
-        cout << "Destructor called for object" << endl; 
 }; 
-} 
+ 
+int Counter::count = 0; 
+ 
 int main() { 
-Sample s1;           
-Sample s2(10, 20);   
-Sample s3 = s2;      
-s1.display(); 
-s2.display(); 
-s3.display(); 
-return 0; 
-}
+    Counter c1, c2, c3; 
+    Counter::showCount(); 
+    return 0; 
+} 
