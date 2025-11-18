@@ -1,24 +1,30 @@
-#include <iostream>
-using namespace std;
-
-class Base {
-protected:
-    int a;
-public:
-    void getA() { cout << "Enter A: "; cin >> a; }
-};
-
-class Derived : public Base {
-    int b;
-public:
-    void getB() { cout << "Enter B: "; cin >> b; }
-    void display() { cout << "Sum: " << a + b << endl; }
-};
-
-int main() {
-    Derived d;
-    d.getA();
-    d.getB();
-    d.display();
-    return 0;
+Aim: 
+To write a C++ program to implement single inheritance using private and public access specifiers.
+ 
+Program: 
+#include <iostream> 
+using namespace std; 
+ 
+class Base { 
+protected: 
+    int a; 
+public: 
+    void getData() { 
+        cout << "Enter a value: "; 
+        cin >> a; 
+    } 
+}; 
+ 
+class Derived : public Base { 
+public: 
+    void display() { 
+        cout << "Value of a = " << a << endl; 
+    } 
+}; 
+ 
+int main() { 
+    Derived obj; 
+    obj.getData(); 
+    obj.display(); 
+    return 0; 
 }
